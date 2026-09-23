@@ -66,26 +66,20 @@ InsightIQ/
     ├── model.py
     ├── analysis.py
     └── explain.py
-Run Locally
-git clone https://github.com/ShreyaRai2004/InsightIQ.git
-cd InsightIQ
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-python train.py --file data/sample/InsightIQ_Business_Data.xlsx
-streamlit run app.py
-Dataset
+```
+
+## Dataset
 
 The repository includes a synthetic business dataset for demonstration with fields such as Date, Product, Category, Region, Quantity, Revenue, Cost, Discount, Marketing Spend, Customer Type, Operating Cost, and Profit.
 
 Custom CSV and Excel datasets are also supported.
 
-License
+## License
 
 MIT License
 
-Author
+## Author
 
-Shreya R Sai
+**Shreya R Sai**
 
 GitHub: https://github.com/ShreyaRai2004
