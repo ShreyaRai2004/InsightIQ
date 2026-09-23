@@ -1,45 +1,91 @@
 # InsightIQ — Predictive Business Analytics Platform
 
-InsightIQ is an end-to-end business analytics and machine learning platform for analyzing business performance, estimating future profit, explaining model predictions, detecting anomalies, forecasting trends, assessing risk, and testing what-if scenarios.
+InsightIQ is a business analytics and machine learning platform for analyzing business performance, predicting profit, explaining predictions, detecting anomalies, forecasting future profit, and evaluating what-if scenarios.
 
-## What makes the prediction setup realistic?
+**Live Demo:** https://insightiq-kdeewsolmwwxuduitkdrwe.streamlit.app/  
+**GitHub:** https://github.com/ShreyaRai2004/InsightIQ
 
-Profit is not predicted from values that directly calculate the same profit record. The ML pipeline excludes `Revenue`, `Cost`, `Operating Cost`, `Gross_Margin`, and the target `Profit` from prediction features. Instead, it uses operational inputs such as quantity, discount, marketing spend, product/category, region, customer type, and date-derived seasonality features.
+## Features
 
-The training workflow also uses a chronological **60% train / 20% validation / 20% test** split. The validation period selects the model, while the final test period is kept for the final evaluation. This better reflects a business scenario where future observations should not be used to train a model for the past.
-
-## ML models
-
-- Linear Regression — interpretable baseline
-- Random Forest Regressor — nonlinear ensemble model
-- XGBoost Regressor — gradient-boosted model
-
-Models are compared using **MAE, RMSE, and R²**. The selected model is chosen using validation R², not the final test set.
-
-## Other modules
-
-- CSV / Excel upload and validation
-- Business KPI dashboard and interactive charts
-- SHAP-based prediction explainability
+- Business performance analysis and KPI dashboard
+- CSV and Excel data upload
+- Data validation and preprocessing
+- Profit prediction using machine learning
+- Linear Regression, Random Forest, and XGBoost comparison
+- SHAP-based model explainability
 - Isolation Forest anomaly detection
 - Monthly profit forecasting
-- Rule-based profitability risk analysis
-- What-if simulation without retraining the model
+- Risk analysis
+- What-if scenario simulation
+- Interactive Plotly visualizations
 
-## Run
+## Machine Learning
 
-```cmd
-cd C:\ShreyaResumeProjects\AIML\InsightIQ\InsightIQ
+The project uses a chronological **60% training / 20% validation / 20% test** split. Models are evaluated using **MAE, RMSE, and R²**, with validation performance used for model selection.
+
+To reduce target leakage, `Profit`, `Revenue`, `Cost`, `Operating Cost`, and `Gross_Margin` are excluded from prediction inputs.
+
+### Model Results
+
+| Model | Test MAE | Test RMSE | Test R² |
+|---|---:|---:|---:|
+| Linear Regression | ₹30,141.09 | ₹48,437.57 | 0.7548 |
+| Random Forest | ₹13,578.71 | ₹21,573.81 | 0.9514 |
+| XGBoost | ₹12,035.95 | ₹19,654.00 | 0.9596 |
+
+**Selected Model:** XGBoost  
+**Validation R²:** 0.9377
+
+## Explainability
+
+SHAP/TreeSHAP is used to identify the features that contribute most to model predictions and display global feature importance.
+
+## Technology Stack
+
+**Python · Streamlit · Pandas · NumPy · Scikit-learn · XGBoost · SHAP · Plotly · Statsmodels · Joblib · OpenPyXL**
+
+## Project Structure
+
+```text
+InsightIQ/
+├── app.py
+├── train.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+├── data/
+│   └── sample/
+│       └── InsightIQ_Business_Data.xlsx
+├── models/
+│   ├── best_model.joblib
+│   └── model_comparison.csv
+└── src/
+    ├── data_loader.py
+    ├── validation.py
+    ├── features.py
+    ├── model.py
+    ├── analysis.py
+    └── explain.py
+Run Locally
+git clone https://github.com/ShreyaRai2004/InsightIQ.git
+cd InsightIQ
 python -m venv .venv
 .venv\Scripts\activate
-python -m pip install --upgrade pip
 pip install -r requirements.txt
-python train.py --file data\sample\InsightIQ_Business_Data.xlsx
+python train.py --file data/sample/InsightIQ_Business_Data.xlsx
 streamlit run app.py
-```
+Dataset
 
-If `.venv` already exists, activate it and run the last two commands.
+The repository includes a synthetic business dataset for demonstration with fields such as Date, Product, Category, Region, Quantity, Revenue, Cost, Discount, Marketing Spend, Customer Type, Operating Cost, and Profit.
 
-The included Excel file is synthetic demonstration data. Use real company data only when you are authorized to use it, and retrain the model on that company's historical data.
+Custom CSV and Excel datasets are also supported.
 
-Model metrics in the README or resume should always come from an actual training run; do not present example metrics as measured results.
+License
+
+MIT License
+
+Author
+
+Shreya R Sai
+
+GitHub: https://github.com/ShreyaRai2004
