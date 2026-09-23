@@ -1,10 +1,5 @@
 # InsightIQ — Predictive Business Analytics Platform
 <p align="center">
-  <a href="https://insightiq-kdeewsolmwwxuduitkdrwe.streamlit.app/">Live Demo</a> •
-  <a href="https://github.com/ShreyaRai2004/InsightIQ">GitHub</a>
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python" alt="Python">
   <img src="https://img.shields.io/badge/Streamlit-red?logo=streamlit" alt="Streamlit">
   <img src="https://img.shields.io/badge/Scikit--learn-F7931E?logo=scikit-learn&logoColor=white" alt="Scikit-learn">
